@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./shared/components/Layout/Header";
+import Slider from "./shared/components/Layout/Slider";
+import Menu from "./shared/components/Layout/Menu";
+import Sidebar from "./shared/components/Layout/Sidebar";
+import Footer from "./shared/components/Layout/Footer";
+import { Provider } from "react-redux";
+import store, { persistor } from "./redux-setup/store";
+import { PersistGate } from "redux-persist/integration/react";
+import { routers } from "./routes";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <BrowserRouter>
+          <>
+            <div>
+              <Header />
+
+              <div id="body">
+                <div className="container">
+                  <div className="row">
+                    <Menu />
+                  </div>
+                  <div className="row">
+                    <div id="main" className="col-lg-8 col-md-12 col-sm-12">
+                      <Slider />
+
+                      <Routes>
+                        {routers.map((router, index) => (
+                          <Route
+                            key={index}
+                            path={router.path}
+                            element={<router.element />}
+                          />
+                        ))}
+                      </Routes>
+                    </div>
+                    <Sidebar />
+                  </div>
+                </div>
+              </div>
+              {/*	End Body	*/}
+              <Footer />
+            </div>
+          </>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   );
-}
+};
 
 export default App;
