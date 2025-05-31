@@ -26,3 +26,4 @@ export const orderCanceled = (id) =>
   Http.get(`/customer/orders/${id}/canceled`);
 export const updateCustomer = (id, data) =>
   Http.post(`/customers/${id}/update`, data);
+export const refreshToken = () => Http.get("/customer/refreshtoken");

@@ -1,6 +1,6 @@
 {
-  "homepage": "https://phamdung140703.gitlab.io/shopphone/",
-  "name": "myreactjs",
+  "homepage": "https://phamdung140703.gitlab.io/",
+  "name": "shopphone",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

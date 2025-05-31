@@ -1,3 +1,2 @@
-// tương tự như file config dùng để sau có thê thay đổi api
-export const BASE_API = "https://vietpro-nodejs-api.onrender.com/api/v1";
-export const BASE_URL = "https://vietpro-nodejs-api.onrender.com";
+export const BASE_URL = process.env.REACT_APP_API_URL;
+export const BASE_API = `${BASE_URL}/api/v1`;
