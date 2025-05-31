@@ -39,11 +39,11 @@ export const routers = [
   },
   {
     path: "/register",
-    element: Register,
+    element: AuthRequired.CheckLogged(Register),
   },
   {
     path: "/login",
-    element: Login,
+    element: AuthRequired.CheckLogged(Login),
   },
   {
     path: "/orders",

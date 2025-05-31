@@ -66,7 +66,7 @@ const Login = () => {
             onClick={clickLogin}
             className="by-now col-lg-6 col-md-6 col-sm-12"
           >
-            <Link to="#">
+            <Link to="">
               <b>Đăng nhập ngay</b>
             </Link>
           </div>

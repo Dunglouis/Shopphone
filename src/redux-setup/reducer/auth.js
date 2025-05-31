@@ -26,8 +26,12 @@ const authReducer = createSlice({
       state.logged.currentCustomer.customer.phone = action.payload.phone;
       state.logged.currentCustomer.customer.address = action.payload.address;
     },
+    updateAccesstoken: (state, action) => {
+      state.logged.currentCustomer.accessToken = action.payload.newAccessToken;
+    },
   },
 });
 
-export const { loggedIn, loggedOut, updatedCustomer } = authReducer.actions;
+export const { loggedIn, loggedOut, updatedCustomer, updateAccesstoken } =
+  authReducer.actions;
 export default authReducer.reducer;
